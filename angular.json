@@ -1,9 +1,9 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1, 
+  "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "star-war-application": {
+    "starwarapplication": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/star-war-application",
+            "outputPath": "dist/starwarapplication",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -28,7 +28,11 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/bootstrap/dist/css/bootstrap-reboot.css",
+              "node_modules/bootstrap/dist/css/bootstrap-grid.css",
+              "node_modules/chart.js/dist/Chart.min.js"
             ],
             "scripts": []
           },
@@ -66,18 +70,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "star-war-application:build"
+            "browserTarget": "starwarapplication:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "star-war-application:build:production"
+              "browserTarget": "starwarapplication:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "star-war-application:build"
+            "browserTarget": "starwarapplication:build"
           }
         },
         "test": {
@@ -114,15 +118,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "star-war-application:serve"
+            "devServerTarget": "starwarapplication:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "star-war-application:serve:production"
+              "devServerTarget": "starwarapplication:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "star-war-application"
+  "defaultProject": "starwarapplication"
 }

@@ -1,0 +1,46 @@
+<div class="header">
+  <nav class="navbar navbar-expand-sm bg-light navbar-light justify-content-between fixed-top">
+    <div class="logo"><span>Star War Application</span></div>
+    <div>
+      <span class="myProfile-text" (click)="openNav()" #myProfileText>
+        <i class="fa fa-bars" aria-hidden="true"></i>
+      </span>
+    </div>
+  </nav>
+  <div class="side-nav" [ngStyle]="{'width':sideNavbar == true ? '200px' :''}" #showProfile>
+    <div class="close-css" (click)="openNav()">
+      <i class="fa fa-times" aria-hidden="true"></i>
+    </div>
+    <div class="myProfile" *ngFor="let list of sideBarList">
+      <button class="navBtns" (click)="getLink(list)">
+        <i class="{{list.logo}}" aria-hidden="true"></i> {{list.name}}</button>
+    </div>
+  </div>
+</div>
+<div class="data-container" *ngIf="selectedList">
+  <div class="col-12 table-heading">
+    <div class="row">
+      <div class="col-xs-12 col-md-4 col-lg-4 view">
+        <div class="row m-0">
+          <div class="table-head" (click)="viewChange('table')">
+            <i class="fa fa-table" aria-hidden="true"></i>
+            <span>View Table</span>
+          </div>
+          <div class="table-head" (click)="viewChange('chart')">
+            <i class="fa fa-pie-chart" aria-hidden="true"></i>
+            <span>View Chart</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-4 col-lg-4 header pt-2">
+        {{selectedName}} Details
+      </div>
+      <div class="col-xs-12 col-md-4 col-lg-4 search pt-1">
+        <input type="text" (input)="filterText($event)" placeholder="search..">
+      </div>
+    </div>
+  </div>
+  <app-table-view *ngIf="selectedView ==='table'"></app-table-view>
+
+  <app-chart-view *ngIf="selectedView ==='chart'"></app-chart-view>
+</div>

@@ -1,0 +1,30 @@
+<div class="table-responsive" id="scrollbar">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th *ngFor="let key of keysList">{{key}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let list of pageCountList |searchHighlight:searchText;let i= index">
+        <td *ngFor="let data of list.text;let j= index">
+          <span>{{data}}</span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="text-algin-r">
+  <button (click)="firstClick()" class="page-btn-css" [disabled]="paginationValue===0">
+    First
+  </button>
+  <button (click)="previousClick()" class="page-btn-css" [disabled]="paginationValue===0">
+    Previous
+  </button>
+  <button (click)="nextClick()" class="page-btn-css" [disabled]="paginationValue === count">
+    Next
+  </button>
+  <button (click)="lastClick()" class="page-btn-css" [disabled]="paginationValue === count">
+    Last
+  </button>
+</div>

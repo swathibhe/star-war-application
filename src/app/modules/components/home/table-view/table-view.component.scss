@@ -1,0 +1,34 @@
+.table-responsive {
+  max-height: calc(100vh - 185px);
+  .table {
+    margin-bottom: 0px !important;
+    thead {
+      tr > th {
+        text-transform: capitalize;
+        color: var(--dark-purple);
+      }
+    }
+    tbody {
+      tr > td > span {
+        font-size: 12px;
+        text-transform: capitalize;
+      }
+    }
+  }
+}
+.text-algin-r {
+  text-align: right !important;
+  padding: 10px 10rem;
+  .page-btn-css {
+    text-transform: capitalize;
+    border-radius: 8px;
+    background: #ffffff;
+    color: #353535;
+    font-weight: 600;
+    border: 1px solid rgba(6, 60, 200, 0.25);
+    border-radius: 8px;
+    color: #1c242a;
+    outline: none;
+    margin: 0px 6px;
+  }
+}
